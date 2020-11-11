@@ -1,0 +1,16 @@
+{
+  "version": 3,
+  "file": "bundle.css",
+  "sources": [
+    "App.svelte",
+    "Bouton.svelte",
+    "Voyage.svelte"
+  ],
+  "sourcesContent": [
+    "<script>\n\timport Button from \"./modules/Bouton.svelte\";\n\timport Voyage from \"./modules/Voyage.svelte\";\n\timport {voyages} from \"./voyages.js\";\n\n\tlet voyageActuel = false;\n\n\tfunction voyager() {\n\t\t//sélectionne un voyage au hasard et l'affecte à la variable voyageActuel\n\t\tvoyageActuel = voyages[Math.floor(Math.random() * voyages.length)];\n\t}\n</script>\n\n<style>\n\tmain {\n\t\ttext-align: center;\n\t\tdisplay: flex;\n\t\tflex-direction: column;\n\t\tjustify-content: center;\n\t\talign-items: center;\n\t}\n\n\th1 {\n\t\tcolor: #93593c;\n\t\ttext-transform: uppercase;\n\t\tfont-size: 4em;\n\t\tfont-weight: 900;\n\t\tmargin: 0;\n\t\tfont-family: \"Poppins\", sans-serif;\n\t}\n</style>\n\n<main>\n\t<h1>Aventurier !</h1>\n\t<p>Quelle sera votre prochaine destination ?</p>\n\t<p>Actuellement :</p>\n\t{#if !voyageActuel}\n\t\t<span>Vous êtes tranquillement chez vous, dans la douceur du foyer..</span>\n\t{:else}\n\t\t<Voyage {...voyageActuel} />\n\t{/if}\n\t<Button on:click={voyager}>Prendre l'avion ✈</Button>\n</main>\n",
+    "<script>\r\n</script>\r\n\r\n<style>\r\n\t.bouton {\r\n\t\tdisplay: flex;\r\n\t\tjustify-content: center;\r\n\t\tcursor: pointer;\r\n\t\tcolor: #725dff;\r\n\t\tfont-weight: 600;\r\n\t\tletter-spacing: 0.3px;\r\n\t\tbackground-color: #dfddef;\r\n\t\tborder-radius: 6px;\r\n\t\tpadding: 10px 20px;\r\n\t\twidth: max-content;\r\n\t\tmargin-top: 20px;\r\n\t\ttransition: 0.2s;\r\n\t\tuser-select: none;\r\n\t}\r\n\t.bouton:hover {\r\n\t\tbackground-color: #eeedf8;\r\n\t}\r\n\t.bouton:active {\r\n\t\ttransform: scale(0.9);\r\n\t}\r\n</style>\r\n\r\n<div class=\"bouton\" on:click>\r\n\t<slot />\r\n</div>\r\n",
+    "<script>\r\n\texport let paysPrefix;\r\n\texport let pays;\r\n\texport let phrase;\r\n</script>\r\n\r\n<style>\r\n\t.pays {\r\n\t\tfont-weight: bold;\r\n\t\tdisplay: inline;\r\n\t\tcolor: #93593c;\r\n\t}\r\n</style>\r\n\r\n<div class=\"voyage\">\r\n\tVous êtes\r\n\t{paysPrefix}\r\n\t<div class=\"pays\">{pays}</div>, pour\r\n\t{phrase}.\r\n</div>\r\n"
+  ],
+  "names": [],
+  "mappings": "AAcC,IAAI,cAAC,CAAC,AACL,UAAU,CAAE,MAAM,CAClB,OAAO,CAAE,IAAI,CACb,cAAc,CAAE,MAAM,CACtB,eAAe,CAAE,MAAM,CACvB,WAAW,CAAE,MAAM,AACpB,CAAC,AAED,EAAE,cAAC,CAAC,AACH,KAAK,CAAE,OAAO,CACd,cAAc,CAAE,SAAS,CACzB,SAAS,CAAE,GAAG,CACd,WAAW,CAAE,GAAG,CAChB,MAAM,CAAE,CAAC,CACT,WAAW,CAAE,SAAS,CAAC,CAAC,UAAU,AACnC,CAAC;ACzBD,OAAO,cAAC,CAAC,AACR,OAAO,CAAE,IAAI,CACb,eAAe,CAAE,MAAM,CACvB,MAAM,CAAE,OAAO,CACf,KAAK,CAAE,OAAO,CACd,WAAW,CAAE,GAAG,CAChB,cAAc,CAAE,KAAK,CACrB,gBAAgB,CAAE,OAAO,CACzB,aAAa,CAAE,GAAG,CAClB,OAAO,CAAE,IAAI,CAAC,IAAI,CAClB,KAAK,CAAE,WAAW,CAClB,UAAU,CAAE,IAAI,CAChB,UAAU,CAAE,IAAI,CAChB,WAAW,CAAE,IAAI,AAClB,CAAC,AACD,qBAAO,MAAM,AAAC,CAAC,AACd,gBAAgB,CAAE,OAAO,AAC1B,CAAC,AACD,qBAAO,OAAO,AAAC,CAAC,AACf,SAAS,CAAE,MAAM,GAAG,CAAC,AACtB,CAAC;ACjBD,KAAK,cAAC,CAAC,AACN,WAAW,CAAE,IAAI,CACjB,OAAO,CAAE,MAAM,CACf,KAAK,CAAE,OAAO,AACf,CAAC"
+}
